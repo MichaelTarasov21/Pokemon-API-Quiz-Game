@@ -12,6 +12,7 @@ import {
 import "regenerator-runtime/runtime";
 let pokedexnumber = Math.floor(Math.random() * 893 + 1);
 let queryurl = `https://pokeapi.co/api/v2/pokemon/${pokedexnumber}`;
+let generationsinplay = [];
 
 async function searchPokemon() {
   const response = await fetch(queryurl, ["GET"]);
@@ -24,7 +25,7 @@ searchPokemon();
 
 DomSelectors.container.insertAdjacentHTML(
   "beforeend",
-  `<form class="selection"> 
+  `<div class="selection"> 
  <label class ="statement">Choose the generations you would like to do!</label> 
  <br> <input id="check1" type ="checkbox"> 
  <label class ="choice">Generation 1</label>
@@ -51,15 +52,39 @@ DomSelectors.container.insertAdjacentHTML(
  <br>
  <br>
  <input type="submit" class="submitting" id="start" value="Start The Game">  
-</form>`
+</div>`
 );
 
-const start = document.getElementById("start")
+const start = document.getElementById("start");
 
-start.addEventListener("click", function (e) {
-  e.preventDefault();
+start.addEventListener("click", function () {
+  generationsinplay = [];
+  if (document.getElementById(`check1`).checked) {
+    generationsinplay = generationsinplay.concat(generation1Array);
+  }
+  if (document.getElementById(`check2`).checked) {
+    generationsinplay = generationsinplay.concat(generation2Array);
+  }
+  if (document.getElementById(`check3`).checked) {
+    generationsinplay = generationsinplay.concat(generation3Array);
+  }
+  if (document.getElementById(`check4`).checked) {
+    generationsinplay = generationsinplay.concat(generation4Array);
+  }
+  if (document.getElementById(`check5`).checked) {
+    generationsinplay = generationsinplay.concat(generation5Array);
+  }
+  if (document.getElementById(`check6`).checked) {
+    generationsinplay = generationsinplay.concat(generation6Array);
+  }
+  if (document.getElementById(`check7`).checked) {
+    generationsinplay = generationsinplay.concat(generation7Array);
+  }
+  if (document.getElementById(`check8`).checked) {
+    generationsinplay = generationsinplay.concat(generation8Array);
+  }
+  console.log(generationsinplay);
 });
-
 
 // add an event listener that will record the checked generations
 // new html that will record the amount of questions they want to do based on the generations they picked from 1 - 893
