@@ -26,21 +26,21 @@ DomSelectors.container.insertAdjacentHTML(
   "beforeend",
   `<form class="selection"> 
  <label class ="statement">Choose the generations you would like to do!</label> 
- <br> <input id="check" type ="checkbox"> 
+ <br> <input id="check1" type ="checkbox"> 
  <label class ="choice">Generation 1</label>
- <br> <input id="check" type ="checkbox"> 
+ <br> <input id="check2" type ="checkbox"> 
  <label class ="choice">Generation 2</label> 
- <br> <input id="check" type ="checkbox"> 
+ <br> <input id="check3" type ="checkbox"> 
  <label class ="choice">Generation 3</label> 
- <br> <input id="check" type ="checkbox"> 
+ <br> <input id="check4" type ="checkbox"> 
  <label class ="choice">Generation 4</label> 
- <br> <input id="check" type ="checkbox"> 
+ <br> <input id="check5" type ="checkbox"> 
  <label class ="choice">Generation 5</label> 
- <br> <input id="check" type ="checkbox"> 
+ <br> <input id="check6" type ="checkbox"> 
  <label class ="choice">Generation 6</label> 
- <br> <input id="check" type ="checkbox"> 
+ <br> <input id="check7" type ="checkbox"> 
  <label class ="choice">Generation 7</label> 
- <br> <input id="check" type ="checkbox"> 
+ <br> <input id="check8" type ="checkbox"> 
  <label class ="choice">Generation 8</label>
  <br>
  <br> 
@@ -50,17 +50,16 @@ DomSelectors.container.insertAdjacentHTML(
  <input type="text" placeholder="Enter a number"> 
  <br>
  <br>
- <input type="submit" class="submitting" id="submit" value="Start The Game">  
+ <input type="submit" class="submitting" id="start" value="Start The Game">  
 </form>`
 );
 
-const submit = DomSelectors.container
-  .querySelector(".selection")
-  .querySelector(".submitting");
+const start = document.getElementById("start")
 
-submit.addEventListener("click", function (e) {
+start.addEventListener("click", function (e) {
   e.preventDefault();
 });
+
 
 // add an event listener that will record the checked generations
 // new html that will record the amount of questions they want to do based on the generations they picked from 1 - 893
