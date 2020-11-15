@@ -95,9 +95,10 @@ next.addEventListener("click", function (e) {
     submit.addEventListener("click", function() {
       if (document.querySelector('.number').value > generationsinplay.length){
         alert(`Its Greater than ${generationsinplay.length}!!!`)
+      }else if (document.querySelector('.number').value < 1){
+        alert("If you don't wanna play any questions you don't have to play")
       }else{
-        //begin the game
-        console.log('begin')
+        startgame(document.querySelector('.number').value);
       }
     })
   }
@@ -105,7 +106,7 @@ next.addEventListener("click", function (e) {
 
 
 
-// add an event listener that will record the checked generations
+// add an event listener that will record the checked generations 
 // new html that will record the amount of questions they want to do based on the generations they picked from 1 - 893
 // add an event listener to record those questions
 // begin the quiz
