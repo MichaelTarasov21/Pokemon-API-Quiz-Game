@@ -106,13 +106,14 @@ next.addEventListener("click", function (e) {
 
 
 
-// add an event listener that will record the checked generations 
-// new html that will record the amount of questions they want to do based on the generations they picked from 1 - 893
-// add an event listener to record those questions
-// begin the quiz
-// display quiz
-// show if they got it right
-// if not then no
-// if yes then yes
-// at the end, tell them they got it right
-// also make sure that the pokemon doesnt get repeated
+/* add an event listener that will record the checked generations 
+new html that will record the amount of questions they want to do based on the generations they picked from 1 - 893
+add an event listener to record those questions
+begin the quiz
+______________________________________________ Done
+display quiz
+show if they got it right
+if not then no
+if yes then yes
+at the end, tell them they got it right
+also make sure that the pokemon doesnt get repeated */
