@@ -98,12 +98,14 @@ next.addEventListener("click", function (e) {
       }else if (document.querySelector('.number').value < 1){
         alert("If you don't wanna play any questions you don't have to play")
       }else{
-        startgame(document.querySelector('.number').value);
+        startgame(document.querySelector('.number').value, generationsinplay);
       }
     })
   }
 });
-
+function startgame(questionamount, pokedexnumbers){
+  console.log("Game Started")
+}
 
 
 /* add an event listener that will record the checked generations 
