@@ -17,7 +17,6 @@ let generationsinplay = [];
 async function searchPokemon() {
   const response = await fetch(queryurl, ["GET"]);
   const pokemon = await response.json();
-  console.log(pokemon.id);
   return pokemon;
 }
 
@@ -26,7 +25,7 @@ searchPokemon();
 DomSelectors.container.insertAdjacentHTML(
   "beforeend",
   `<div class="selection"> 
- <label class ="statement">Choose the generations you would like to do!</label> 
+ <label class ="statement1">Choose the generations you would like to do!</label> 
  <br> <input id="check1" type ="checkbox"> 
  <label class ="choice">Generation 1</label>
  <br> <input id="check2" type ="checkbox"> 
@@ -44,20 +43,18 @@ DomSelectors.container.insertAdjacentHTML(
  <br> <input id="check8" type ="checkbox"> 
  <label class ="choice">Generation 8</label>
  <br>
+ <br>
+ <input type="submit" class="submitting" id="next" value="Next">
+ <br>
  <br> 
- <label class = "statement"> Pick a number from 5-893 which will be the amount of Pokémon that will be given to you!</label>
- <br>
- <br>
- <input type="text" placeholder="Enter a number"> 
- <br>
- <br>
- <input type="submit" class="submitting" id="start" value="Start The Game">  
+ <label class = "statement2" id="statement2"></label>
 </div>`
 );
 
-const start = document.getElementById("start");
+const next = document.getElementById("next");
 
-start.addEventListener("click", function () {
+next.addEventListener("click", function (e) {
+  e.preventDefault();
   generationsinplay = [];
   if (document.getElementById(`check1`).checked) {
     generationsinplay = generationsinplay.concat(generation1Array);
@@ -83,8 +80,30 @@ start.addEventListener("click", function () {
   if (document.getElementById(`check8`).checked) {
     generationsinplay = generationsinplay.concat(generation8Array);
   }
-  console.log(generationsinplay);
+  if (generationsinplay == 0){
+    alert(`You didn't pick one...`)
+  }else{
+    DomSelectors.container.querySelector('.selection').innerHTML = ""
+    DomSelectors.container.querySelector('.selection').insertAdjacentHTML('afterend', `<label class = "statement2">Pick a number from 1-${generationsinplay.length} which will be the amount of Pokémon that will be given to you!</label>
+    <br>
+    <br>
+    <input type="number" min="1" max='${generationsinplay.length}' placeholder="Enter #" class="number"> 
+    <br>
+    <br>
+    <input type="submit" class="submitting" id="start" value="Start The Game">`)
+    const submit = document.getElementById('start')
+    submit.addEventListener("click", function() {
+      if (document.querySelector('.number').value > generationsinplay.length){
+        alert(`Its Greater than ${generationsinplay.length}!!!`)
+      }else{
+        //begin the game
+        console.log('begin')
+      }
+    })
+  }
 });
+
+
 
 // add an event listener that will record the checked generations
 // new html that will record the amount of questions they want to do based on the generations they picked from 1 - 893
