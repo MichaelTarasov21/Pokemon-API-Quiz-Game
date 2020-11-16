@@ -114,8 +114,12 @@ add an event listener to record those questions
 begin the quiz
 ______________________________________________ Done
 display quiz
+we are using the api's "id" which is the pokedex #
 show if they got it right
 if not then no
 if yes then yes
+make sure that the pokemon doesnt get repeated
 at the end, tell them they got it right
-also make sure that the pokemon doesnt get repeated */
+add a play again button
+make the pokemon be repeated again once!
+ */
